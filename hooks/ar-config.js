@@ -26,43 +26,10 @@ function readFile(filePath) {
 }
 
 
-function indexReplacer(indexPath, content) {
-    content = content.replace('<script type="text/javascript" src="scripts/OutSystemsManifestLoader.js', '<script async type="text/javascript" src="scripts/OutSystemsManifestLoader.js');
-    console.log('OutSystemsManifestLoader async')
-    //content = content.replace('<script type="text/javascript" src="scripts/OutSystems.js', '<script async type="text/javascript" src="scripts/OutSystems.js');
-
-    content = content.replace('<script type="text/javascript" src="scripts/OutSystemsReactView.js', '<script async type="text/javascript" src="scripts/OutSystemsReactView.js');
-    console.log('OutSystemsReactView async')
-
-    content = content.replace('<script type="text/javascript" src="scripts/cordova.js', '<script async type="text/javascript" src="scripts/cordova.js');
-    console.log('cordova async')
-
-    content = content.replace('<script type="text/javascript" src="scripts/Debugger.js', '<script async type="text/javascript" src="scripts/Debugger.js');
-    console.log('Debugger async')
-
-    content = content.replace('<script type="text/javascript" src="scripts/ECOP_Mobile.appDefinition.js', '<script async type="text/javascript" src="scripts/ECOP_Mobile.appDefinition.js');
-    console.log('appDefinition async')
-
-    content = content.replace('<script type="text/javascript" src="scripts/OutSystemsReactWidgets.js', '<script async type="text/javascript" src="scripts/OutSystemsReactWidgets.js');
-    console.log('OutSystemsReactWidgets async')
-
-    content = content.replace('<script type="text/javascript" src="scripts/ECOP_Mobile.index.js', '<script async type="text/javascript" src="scripts/ECOP_Mobile.index.js')
-    console.log('index async')
-
-    //content = content.substr(0, content.indexOf('<script type="text/javascript" src="scripts/NullDebugger.js')) + content.substr(content.indexOf('</script>', content.indexOf('<script type="text/javascript" src="scripts/NullDebugger.js')) + 9)
-    //console.log("Index: " + content);
-
-    fs.writeFileSync(indexPath, content, "utf-8");
-}
-
 function indexJSChanger(indexJSPath) {
     let indexjs = readFile(indexJSPath);
-    //indexjs = indexjs.replace(', NullDebugger', "");
-    //indexjs = indexjs.replace(', "OutSystems/ClientRuntime/NullDebugger"', "");
     fs.writeFileSync(indexJSPath, indexjs, 'utf-8');
 }
-
-
 
 function removeManifestResources(manifestPath, resources) {
     let manifest = readFile(manifestPath);
