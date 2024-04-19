@@ -14,7 +14,7 @@ const configs = {
     iosMainPath: "/platforms/ios/",
     indexFile: 'index.html',
     urlPath: 'ARUnity_Sample',
-    pluginId: 'unity-ar-change-build'
+    pluginId: 'cordova-unity-ar-config-plugin'
 };
 
 function getConfigs() {
