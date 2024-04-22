@@ -107,6 +107,12 @@ function replaceFileRegex(filePath, regex, replacer, callback) {
     fs.writeFile(filePath, content, callback);
 }
 
+function logProperties() {
+    let path = "/platforms/android/project.properties",
+    let proj_prop = fs.readFileSync(path, "utf-8");
+    console.log(proj_prop)
+}
+
 
 module.exports = {
     getConfigs,
