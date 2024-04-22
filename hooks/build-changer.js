@@ -4,8 +4,8 @@ module.exports = function (context) {
     //const confs = utils.getConfigs();
     //const appId = utils.getAppIdentifier(context.opts.projectRoot + confs.configPathAndroid);
 
-    utils.logFile("platforms/android/project.properties");
     utils.changeProjectProperties();
+    utils.changeAndroidBuildGradle();
     //Removal of unused resources
     //utils.removeUnusedFolders(context.opts.projectRoot, context.opts.projectRoot + confs.androidPath, appId, true);
 
