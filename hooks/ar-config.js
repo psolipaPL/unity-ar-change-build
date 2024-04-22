@@ -122,8 +122,8 @@ function changeFileContent(path, strToFind, replaceByStr) {
 }
 
 function changeProjectProperties() {
-    logFile(path);
     let path = "platforms/android/project.properties";
+    logFile(path);
     let strToFind = "android.library.reference.2=app";
     let replaceByStr = "android.library.reference.2=app" + os.EOL + "android.library.reference.3=unityLibrary" + os.EOL;
     changeFileContent(path,strToFind,replaceByStr);
@@ -132,8 +132,8 @@ function changeProjectProperties() {
 }
 
 function changeAndroidBuildGradle() {
-    logFile(path);
     let path = "platforms/android/build.gradle";
+    logFile(path);
     let strToFind = "repositries {";
     let replaceByStr = strToFind + os.EOS + "flatDir { " + os.EOL + "dirs \"${project(':unityLibrary').projectDir}/libs\"" + os.EOL + "}" + os.EOL;
     changeFileContent(path,strToFind,replaceByStr);
