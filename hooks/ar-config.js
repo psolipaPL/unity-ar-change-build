@@ -119,7 +119,7 @@ function changeProjectProperties() {
     let path = "platforms/android/project.properties";
     let content = fs.readFileSync(path, "utf8");
     content = content.replace("android.library.reference.2=app", "android.library.reference.2=app" + os.EOL + "android.library.reference.3=unityLibrary" + os.EOL);
-    fs.writeFile(path, content);
+    fs.writeFileSync(path, content);
     //Log the changed file
     logFile(path);
 }
