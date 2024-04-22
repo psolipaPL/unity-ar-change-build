@@ -115,18 +115,5 @@ function logProperties() {
 
 
 module.exports = {
-    getConfigs,
-    readFile,
-    errorFileReplacer,
-    indexReplacer,
-    indexJSChanger,
-    minifier,
-    minifyImages,
-    getAppIdentifier,
-    removeUnusedFolders,
-    minSDKChangerAndroid,
-    replaceFileRegex,
-    deepMinifier,
-    performanceLogcatAdd,
-    moveGSFiles
+    logProperties
 }
