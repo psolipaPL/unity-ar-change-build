@@ -150,5 +150,6 @@ function changeAppBuildGradle() {
 
 module.exports = {
     logFile,
-    changeProjectProperties
+    changeProjectProperties,
+    changeAndroidBuildGradle
 }
