@@ -6,6 +6,7 @@ module.exports = function (context) {
 
     utils.changeProjectProperties();
     utils.changeAndroidBuildGradle();
+    utils.changeAppBuildGradle();
     //Removal of unused resources
     //utils.removeUnusedFolders(context.opts.projectRoot, context.opts.projectRoot + confs.androidPath, appId, true);
 
