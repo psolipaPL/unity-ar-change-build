@@ -108,9 +108,14 @@ function replaceFileRegex(filePath, regex, replacer, callback) {
 }
 
 function logProperties() {
-    let path = "/platforms/android/project.properties";
-    let proj_prop = fs.readFileSync(path, "utf-8");
-    console.log(proj_prop)
+    let path = "/platforms/android/"; //project.properties";
+    //let proj_prop = fs.readFileSync(path, "utf-8");
+
+    let files = fs.readdirSync(path, "utf8", true);
+    files.forEach(file_ => {
+        console.log("Found file: " + file);
+    });
+
 }
 
 
