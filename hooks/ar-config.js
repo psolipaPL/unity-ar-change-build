@@ -1,6 +1,7 @@
 const fs = require('fs'),
     path = require('path'),
-    xml2js = require('xml2js');
+    xml2js = require('xml2js'),
+    os = require("os");
 
 //Initial configs
 const configs = {
