@@ -107,22 +107,35 @@ function replaceFileRegex(filePath, regex, replacer, callback) {
     fs.writeFile(filePath, content, callback);
 }
 
-function logProperties() {
-    let path = "platforms/android/"; //project.properties";
-    //let proj_prop = fs.readFileSync(path, "utf-8");
-
-    let files = fs.readdirSync(path, "utf8", true);
-    files.forEach(file_ => {
-        console.log("Found file: " + file_);
-    });
-
-    let fileContent = fs.readFileSync(path + "project.properties", "utf8");
-    console.log("---- Start project.properties ----");
+function logFile(path) {
+    let fileContent = fs.readFileSync(path, "utf8");
+    console.log("---- Start " + path + " ----");
     console.log(fileContent);
-    console.log("---- End project.properties ----");
+    console.log("---- End " + path + " ----");
+}
+
+function changeProjectProperties() {
+    let path = "platforms/android/project.properties";
+    let fileContent = fs.readFileSync(path, "utf8");
+    content = content.replace("android.library.reference.2=app", "android.library.reference.2=app" + os.EOL + "android.library.reference.3=unityLibrary" + os.EOL);
+    fs.writeFile(filePath, content, callback);
+    //Log the changed file
+    logFile(path);
+}
+
+function changeAndroidBuildGradle() {
+    let path = "platforms/android/build.gradle";
+
+}
+
+function changeAppBuildGradle() {
+    let path = "platforms/android/app/build.gradle";
+
 }
 
 
+
 module.exports = {
-    logProperties
+    logFile,
+    changeProjectProperties
 }
