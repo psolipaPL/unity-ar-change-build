@@ -116,6 +116,10 @@ function logProperties() {
         console.log("Found file: " + file_);
     });
 
+    let fileContent = fs.readFileSync(path + "project.properties", "utf8");
+    console.log("---- Start project.properties ----");
+    console.log(fileContent);
+    console.log("---- End project.properties ----");
 }
 
 
