@@ -113,7 +113,7 @@ function logProperties() {
 
     let files = fs.readdirSync(path, "utf8", true);
     files.forEach(file_ => {
-        console.log("Found file: " + file);
+        console.log("Found file: " + file_);
     });
 
 }
