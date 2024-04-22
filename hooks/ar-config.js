@@ -135,7 +135,7 @@ function changeAndroidBuildGradle() {
     let path = "platforms/android/build.gradle";
     logFile(path);
     let strToFind = "buildscript {";
-    let replaceByStr = "repos = repos.replace('{', '{ \\n flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" \\n }')" + os.EOL + strToFind;
+    let replaceByStr = "repos = repos.replace('{', '{ \\n flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" \\n }');" + os.EOL + strToFind;
     changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
     logFile(path);
