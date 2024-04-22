@@ -115,18 +115,30 @@ function logFile(path) {
     console.log("---- End " + path + " ----");
 }
 
-function changeProjectProperties() {
-    let path = "platforms/android/project.properties";
+function changeFileContent(path, strToFind, replaceByStr) {
     let content = fs.readFileSync(path, "utf8");
-    content = content.replace("android.library.reference.2=app", "android.library.reference.2=app" + os.EOL + "android.library.reference.3=unityLibrary" + os.EOL);
+    content = content.replace(strToFind, replaceByStr);
     fs.writeFileSync(path, content);
+}
+
+function changeProjectProperties() {
+    logFile(path);
+    let path = "platforms/android/project.properties";
+    let strToFind = "android.library.reference.2=app";
+    let replaceByStr = "android.library.reference.2=app" + os.EOL + "android.library.reference.3=unityLibrary" + os.EOL;
+    changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
     logFile(path);
 }
 
 function changeAndroidBuildGradle() {
+    logFile(path);
     let path = "platforms/android/build.gradle";
-
+    let strToFind = "repositries {";
+    let replaceByStr = strToFind + os.EOS + "flatDir { " + os.EOL + "dirs \"${project(':unityLibrary').projectDir}/libs\"" + os.EOL + "}" + os.EOL;
+    changeFileContent(path,strToFind,replaceByStr);
+    //Log the changed file
+    logFile(path);
 }
 
 function changeAppBuildGradle() {
