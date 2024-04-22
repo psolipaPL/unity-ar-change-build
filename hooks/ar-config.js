@@ -134,8 +134,8 @@ function changeProjectProperties() {
 function changeAndroidBuildGradle() {
     let path = "platforms/android/build.gradle";
     logFile(path);
-    let strToFind = "repositries {";
-    let replaceByStr = strToFind + os.EOS + "flatDir { " + os.EOL + "dirs \"${project(':unityLibrary').projectDir}/libs\"" + os.EOL + "}" + os.EOL;
+    let strToFind = "buildscript {";
+    let replaceByStr = "repos = repos.replace('{', '{ \\n flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" \\n }')" + os.EOL + strToFind;
     changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
     logFile(path);
@@ -144,11 +144,11 @@ function changeAndroidBuildGradle() {
 function changeAppBuildGradle() {
     let path = "platforms/android/app/build.gradle";
     logFile(path);
-    //let strToFind = "dependencies {";
-    //let replaceByStr = strToFind + os.EOS + "implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\\\libs'), include: ['*.jar'])" + os.EOL;
-    //changeFileContent(path,strToFind,replaceByStr);
+    let strToFind = "dependencies {";
+    let replaceByStr = strToFind + os.EOS + "implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\\\libs'), include: ['*.jar'])" + os.EOL;
+    changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
-    //logFile(path);
+    logFile(path);
 }
 
 
