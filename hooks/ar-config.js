@@ -134,8 +134,8 @@ function changeProjectProperties() {
 function changeAndroidBuildGradle() {
     let path = "platforms/android/build.gradle";
     logFile(path);
-    let strToFind = "repositories repos";
-    let replaceByStr = " repositories {repos" + os.EOL + "{ flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" \\n }');}";
+    let strToFind = 'apply from: ""${project.rootDir}/repositories.gradle""';
+    let replaceByStr = strToFind + os.EOL + "}" + os.EOL + "repositories { " + os.EOL + "repos" + os.EOL + "{ flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" \\n }');" + os.EOL + "}";
     changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
     logFile(path);
@@ -162,8 +162,8 @@ function logAppFolders(foldersPath) {
 
 
 function generateUnityLibrary() {
-    let dir = "platforms/android/unityLibrary/libs/";
-    let res_path = "platforms/android/app/src/main/assets/www/libs/";
+    let dir = "/platforms/android/unityLibrary/libs/";
+    let res_path = "/platforms/android/app/src/main/assets/www/libs/";
 
 
     var oldPath1 = res_path + 'unity-classes.jar';
