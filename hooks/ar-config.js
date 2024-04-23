@@ -134,8 +134,8 @@ function changeProjectProperties() {
 function changeAndroidBuildGradle() {
     let path = "platforms/android/build.gradle";
     logFile(path);
-    let strToFind = 'apply from: ""${project.rootDir}/repositories.gradle""';
-    let replaceByStr = strToFind + os.EOL + "}" + os.EOL + "repositories { " + os.EOL + "repos" + os.EOL + "{ flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" \\n }');" + os.EOL + "}";
+    let strToFind = '{\nrepositories repos';
+    let replaceByStr = "{\nrepositories {\nrepos" + os.EOL + "flatDir { dirs \"${project(':unityLibrary').projectDir}/libs\" \\n }";
     changeFileContent(path,strToFind,replaceByStr);
     //Log the changed file
     logFile(path);
@@ -170,12 +170,13 @@ function generateUnityLibrary() {
     var oldPath1 = res_path + 'unity-classes.jar';
     var oldPath2 = res_path + 'VuforiaEngine.aar';
     var newPath1 = dir + 'unity-classes.jar';
-    var newPath2 = dir + '/VuforiaEngine.aar';
+    var newPath2 = dir + 'VuforiaEngine.aar';
 
-    fs.rename(oldPath1, newPath1, function (err) {
-        if (err) throw err
-        console.log("Successfully renamed 'unity-classes.jar' - AKA moved!");
-    })
+    fs.renameSync(oldPath1, newPath1);
+    console.log("Successfully renamed 'unity-classes.jar' - AKA moved!");
+
+    fs.renameSync(oldPath2, newPath2);
+    console.log("Successfully renamed 'VuforiaEngine.aar' - AKA moved!");
 
     var files = fs.readdirSync("platforms/android/unityLibrary/");
     console.log("--- Reading files in " + "platforms/android/unityLibrary/" + " ---");
