@@ -164,7 +164,7 @@ function logAppFolders(foldersPath) {
 function generateUnityLibrary() {
     let dir = "platforms/android/unityLibrary/libs/";
     let res_path = "platforms/android/app/src/main/assets/www/libs/";
-
+    fs.mkdirSync(dir);
 
     var oldPath1 = res_path + 'unity-classes.jar';
     var oldPath2 = res_path + 'VuforiaEngine.aar';
@@ -177,9 +177,15 @@ function generateUnityLibrary() {
     })
 
     let files = fs.readdirSync(dir);
-    console.log("--- Reading files in unityLibrary ---");
+    console.log("--- Reading files in " + dir + " ---");
     files.forEach(folder => {
         console.log(folder);
+    })
+
+    let files_ = fs.readdirSync(res_path);
+    console.log("--- Reading files in " + res_path + " ---");
+    files_.forEach(files => {
+        console.log(files);
     })
 }
 
