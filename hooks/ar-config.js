@@ -172,17 +172,22 @@ function generateUnityLibrary() {
     var newPath1 = dir + 'unity-classes.jar';
     var newPath2 = dir + '/VuforiaEngine.aar';
 
-    // fs.rename(oldPath1, newPath1, function (err) {
-    //     if (err) throw err
-    //     console.log("Successfully renamed 'unity-classes.jar' - AKA moved!");
-    // })
+    fs.rename(oldPath1, newPath1, function (err) {
+        if (err) throw err
+        console.log("Successfully renamed 'unity-classes.jar' - AKA moved!");
+    })
 
-    let files = fs.readdirSync(dir);
-    console.log("--- Reading files in " + dir + " ---");
+    var files = fs.readdirSync("platforms/android/unityLibrary/");
+    console.log("--- Reading files in " + "platforms/android/unityLibrary/" + " ---");
     files.forEach(folder => {
         console.log(folder);
     })
 
+    files = fs.readdirSync(dir);
+    console.log("--- Reading files in " + dir + " ---");
+    files.forEach(folder => {
+        console.log(folder);
+    })
 }
 
 
