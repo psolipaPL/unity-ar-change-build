@@ -164,6 +164,7 @@ function logAppFolders(foldersPath) {
 
 
 module.exports = {
+    getConfigs,
     logFile,
     changeProjectProperties,
     changeAndroidBuildGradle,
