@@ -169,12 +169,12 @@ function generateUnityLibrary() {
 
     var oldPath1 = res_path + 'unity-classes.jar';
     var oldPath2 = res_path + 'VuforiaEngine.aar';
-    var newPath1 = dir + '/unity-classes.jar';
+    var newPath1 = dir + 'unity-classes.jar';
     var newPath2 = dir + '/VuforiaEngine.aar';
 
-    fs.rename(res_path, dir, function (err) {
+    fs.rename(oldPath1, newPath1, function (err) {
         if (err) throw err
-        console.log("Successfully renamed 'VuforiaEngine.aar' - AKA moved!");
+        console.log("Successfully renamed 'unity-classes.jar' - AKA moved!");
     })
 
     let files = fs.readdirSync(dir);
