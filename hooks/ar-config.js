@@ -162,8 +162,9 @@ function logAppFolders(foldersPath) {
 
 
 function generateUnityLibrary() {
-    let dir = "/platforms/android/unityLibrary/libs/";
+    let dir = "platforms/android/unityLibrary/libs/";
     let res_path = "platforms/android/app/src/main/assets/www/libs/";
+    fs.mkdirSync("platforms/android/unityLibrary/");
     fs.mkdirSync(dir);
 
     var oldPath1 = res_path + 'unity-classes.jar';
