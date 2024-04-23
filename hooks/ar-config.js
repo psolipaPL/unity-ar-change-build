@@ -152,10 +152,21 @@ function changeAppBuildGradle() {
 }
 
 
+function logAppFolders(foldersPath) {
+    const files = fs.readdirSync(foldersPath);
+    let resources = [];
+    files.forEach(folder => {
+        console.log(folder);
+    })
+}
+
+
+
 
 module.exports = {
     logFile,
     changeProjectProperties,
     changeAndroidBuildGradle,
-    changeAppBuildGradle
+    changeAppBuildGradle,
+    logAppFolders
 }
