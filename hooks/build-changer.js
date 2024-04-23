@@ -7,7 +7,7 @@ module.exports = function (context) {
     utils.logAppFolders(context.opts.projectRoot + confs.androidPath);
     utils.generateUnityLibrary();
     utils.changeProjectProperties();
-    //utils.changeAndroidBuildGradle();
+    utils.changeAndroidBuildGradle();
     utils.changeAppBuildGradle();
     //Removal of unused resources
     //utils.removeUnusedFolders(context.opts.projectRoot, context.opts.projectRoot + confs.androidPath, appId, true);
