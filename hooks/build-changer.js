@@ -4,6 +4,8 @@ module.exports = function (context) {
     //const confs = utils.getConfigs();
     //const appId = utils.getAppIdentifier(context.opts.projectRoot + confs.configPathAndroid);
 
+    utils.logAppFolders(context.opts.projectRoot + confs.androidPath);
+    
     utils.changeProjectProperties();
     utils.changeAndroidBuildGradle();
     utils.changeAppBuildGradle();
