@@ -162,7 +162,7 @@ function logAppFolders(foldersPath) {
 
 
 function generateUnityLibrary() {
-    let dir = "platforms/android/unityLibrary/libs/";
+    let dir = "/platforms/android/unityLibrary/libs/";
     let res_path = "platforms/android/app/src/main/assets/www/libs/";
     fs.mkdirSync(dir);
 
@@ -171,22 +171,14 @@ function generateUnityLibrary() {
     var newPath1 = dir + '/unity-classes.jar';
     var newPath2 = dir + '/VuforiaEngine.aar';
 
-    fs.rename(res_path, dir, function (err) {
-        if (err) throw err
-        console.log("Successfully renamed 'VuforiaEngine.aar' - AKA moved!");
-    })
 
-    let files = fs.readdirSync(dir);
-    console.log("--- Reading files in " + dir + " ---");
+
+    let files = fs.readdirSync("platforms/android/");
+    console.log("--- Reading files in " + "platforms/android/" + " ---");
     files.forEach(folder => {
         console.log(folder);
     })
 
-    let files_ = fs.readdirSync(res_path);
-    console.log("--- Reading files in " + res_path + " ---");
-    files_.forEach(files => {
-        console.log(files);
-    })
 }
 
 
