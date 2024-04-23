@@ -161,6 +161,33 @@ function logAppFolders(foldersPath) {
 }
 
 
+function generateUnityLibrary() {
+    let dir = "platforms/android/unitylibrary";
+    fs.mkdirSync(dir);
+
+    var oldPath1 = configs.androidPath + '/unity-classes.jar';
+    var oldPath2 = configs.androidPath + '/VuforiaEngine.aar';
+    var newPath1 = dir + '/unity-classes.jar';
+    var newPath2 = dir + '/VuforiaEngine.aar';
+
+    fs.rename(oldPath1, newPath1, function (err) {
+        if (err) throw err
+        console.log("Successfully renamed 'unity-classes.jar' - AKA moved!");
+    })
+
+    fs.rename(oldPath2, newPath2, function (err) {
+        if (err) throw err
+        console.log("Successfully renamed 'VuforiaEngine.aar' - AKA moved!");
+    })
+
+    let files = fs.readdirSync(dir);
+    console.log("--- Reading files in unityLibrary ---");
+    files.forEach(folder => {
+        console.log(folder);
+    })
+}
+
+
 
 
 module.exports = {
@@ -169,5 +196,6 @@ module.exports = {
     changeProjectProperties,
     changeAndroidBuildGradle,
     changeAppBuildGradle,
-    logAppFolders
+    logAppFolders,
+    generateUnityLibrary
 }
