@@ -162,14 +162,14 @@ function logAppFolders(foldersPath) {
 
 
 function generateUnityLibrary() {
-    let dir = "platforms/android/unitylibrary/";
+    let dir = "platforms/android/unityLibrary";
     let res_path = "platforms/android/app/src/main/assets/www/";
     fs.mkdirSync(dir);
 
     var oldPath1 = res_path + 'unity-classes.jar';
     var oldPath2 = res_path + 'VuforiaEngine.aar';
-    var newPath1 = dir + 'unity-classes.jar';
-    var newPath2 = dir + 'VuforiaEngine.aar';
+    var newPath1 = dir + '/unity-classes.jar';
+    var newPath2 = dir + '/VuforiaEngine.aar';
 
     fs.rename(oldPath1, newPath1, function (err) {
         if (err) throw err
